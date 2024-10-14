@@ -9,8 +9,7 @@ body{
     max-width: 100%;
     background: white;
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;   
     position: relative;
     display: flex;
     justify-content: center;
@@ -22,7 +21,7 @@ body{
 
 .glitch-wrapper {
     position: fixed;
-    top: -100px;
+    top: -200px;
     right: 215px;
     width: 250px;
     height: 100px;
@@ -36,7 +35,7 @@ body{
 
  .show-glitch{
     top: 80px;
-    transition: 3s;
+    transition: 3.2s;
  }
 
  .zind{
@@ -82,6 +81,36 @@ body{
     }
  }
  
+.instruction{
+    position: absolute;
+    left: 440px;
+    top: 250px;
+    font-family: 'Sofia', cursive;
+    font-size: 2rem;
+    color: darkslategray;
+    transition: 3s;
+    animation: textAnimation 3s ease 0s infinite normal none;
+}
+.disappear{
+    top: -500px;
+    left: -400px;
+}
+
+
+@keyframes textAnimation {
+    0% {
+      opacity: 1;
+    }
+  
+    50% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
 
 .button1{
     position: fixed;

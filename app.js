@@ -1368,7 +1368,6 @@ const button3 = document.querySelector('.button3');
 
 button1.addEventListener('click',()=>{
     button1.disabled = true;
-    button3.disabled = true;
     vinylBtn1.disabled = true;
     vinylBtn2.disabled = true;
     vinylBtn3.disabled = true;
@@ -1430,8 +1429,7 @@ button2.addEventListener('click',()=>{
 })
 
 button3.addEventListener('click',()=>{
-    button2.disabled = true;
-    button1.disabled = true;
+    button3.disabled = true;
     vinylBtn1.disabled = true;
     vinylBtn2.disabled = true;
     vinylBtn3.disabled = true;
@@ -1681,9 +1679,11 @@ function vinylBtn3Function(e){
 const bookBtn = document.querySelector('.button-book');
 const sub = document.querySelector('.submenu');
 const section = document.querySelector('.section');
+const instruction = document.querySelector('.instruction');
 
 bookBtn.addEventListener('mouseover', ()=>{
-    sub.classList.add('show-sub')   
+    sub.classList.add('show-sub')
+    instruction.classList.add('disappear');   
 })
 
 section.addEventListener('mouseover',(e)=>{
