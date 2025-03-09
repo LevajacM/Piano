@@ -1,157 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel='preconnect' href='https://fonts.googleapis.com'>
-    <link href='https://fonts.googleapis.com/css2?family=Sofia&display=swap' rel='stylesheet' type='text/css'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia&display=swap"
+      rel="stylesheet"
+      type="text/css"
+    />
     <title>Piano</title>
-    <link rel="icon" type="image/x-icon" href="./images/icons8-music.svg">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="./images/icons8-music.svg" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js"
+      integrity="sha512-n8IpKWzDnBOcBhRlHirMZOUvEq2bLRMuJGjuVqbzUJwtTsgwOgK5aS0c1JA647XWYfqvXve8k3PtZdzpipFjgg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+  </head>
+  <body>
     <div class="glitch-wrapper">
-        <div class="glitch" data-text="Play record">Click to play <i class="fa-solid fa-down-long arrow"></i></div>
-     </div>
+      <div class="glitch" data-text="Play record">
+        Click to play <i class="fa-solid fa-down-long arrow"></i>
+      </div>
+    </div>
     <section class="section">
-        <h1 class="instruction">Hover to select record <i class="fa-solid fa-arrow-right"></i></h1>
-        <button class="button1">For Elise</button>
-        <button class="button2">Bella Ciao</button>
-        <button class="button3">Lux Aeterna</button>
-        <button class="button-book"></button>
-        <div class="section-center">      
-            <div class="container">
-                <aside class="submenu">
-                    <ul class="list">
-                        <li class="item">
-                            <a href="#" type="button" class="vinyl-btn1">
-                            <i class="fa-solid fa-record-vinyl icon"></i> For Elise</a>
-                        </li>
-                        <li class="item"><a href="#" type="button" class="vinyl-btn2"><i class="fa-solid fa-record-vinyl icon"></i> Bella Ciao</a></li>
-                        <li class="item"><a href="#" type="button" class="vinyl-btn3"><i class="fa-solid fa-record-vinyl icon"></i> Lux Aeterna</a></li>
-                    </ul>
-                </aside>
-                <div class="con-1">
-                    <div class="f1 white"></div>
-                    <div class="gb1 black"></div>
-                    <div class="g1 white"></div>
-                    <div class="ab1 black"></div>
-                    <div class="a1 white"></div>
-                    <div class="bb1 black"></div>
-                    <div class="b1 white"></div>
-                    <!-- -------------- -->
-                    <div class="f1r white-rest"></div>
-                    <div class="g1r white-rest"></div>
-                    <div class="a1r white-rest"></div>               
-                    <div class="b1r white-rest"></div>
-                </div>
-                <div class="con0">
-                    <div class="c2 white"></div>
-                    <div class="db2 black"></div>
-                    <div class="d2 white"></div>
-                    <div class="eb2 black"></div>
-                    <div class="e2 white"></div>
-                    <div class="f2 white"></div>
-                    <div class="gb2 black"></div>
-                    <div class="g2 white"></div>
-                    <div class="ab2 black"></div>
-                    <div class="a2 white"></div>
-                    <div class="bb2 black"></div>
-                    <div class="b2 white"></div>
-                    <!-- -------------- -->
-                    <div class="c2r white-rest"></div>
-                    <div class="d2r white-rest"></div>
-                    <div class="e2r white-rest"></div>
-                    <div class="f2r white-rest"></div>
-                    <div class="g2r white-rest"></div>
-                    <div class="a2r white-rest"></div>               
-                    <div class="b2r white-rest"></div>
-                </div>
-                <div class="con1">
-                    
-                    <div class="c3 white"></div>
-                    <div class="db3 black"></div>
-                    <div class="d3 white"></div>
-                    <div class="eb3 black"></div>
-                    <div class="e3 white"></div>
-                    <div class="f3 white"></div>
-                    <div class="gb3 black"></div>
-                    <div class="g3 white"></div>
-                    <div class="ab3 black"></div>
-                    <div class="a3 white"></div>
-                    <div class="bb3 black"></div>
-                    <div class="b3 white"></div>
-<!-- ----------- -->
-                    <div class="c3r white-rest"></div>
-                    <div class="d3r white-rest"></div>
-                    <div class="e3r white-rest"></div>
-                    <div class="f3r white-rest"></div>
-                    <div class="g3r white-rest"></div>
-                    <div class="a3r white-rest"></div>               
-                    <div class="b3r white-rest"></div>
-                </div>
-                <!-- ------------------------ -->
-                 <div class="con2">
-                    <div class="c4 white"></div>
-                    <div class="db4 black"></div>
-                    <div class="d4 white"></div>
-                    <div class="eb4 black"></div>
-                    <div class="e4 white"></div>
-                    <div class="f4 white"></div>
-                    <div class="gb4 black"></div>
-                    <div class="g4 white"></div>
-                    <div class="ab4 black"></div>
-                    <div class="a4 white"></div>
-                    <div class="bb4 black"></div>
-                    <div class="b4 white"></div>
-<!-- ----------- -->
-                    <div class="c4r white-rest"></div>
-                    <div class="d4r white-rest"></div>
-                    <div class="e4r white-rest"></div>
-                    <div class="f4r white-rest"></div>
-                    <div class="g4r white-rest"></div>
-                    <div class="a4r white-rest"></div>               
-                    <div class="b4r white-rest"></div>                    
-                 </div>
-                <!-- ------------------------ -->
-                 <div class="con3">
-                    <div class="c5 white"></div>
-                    <div class="db5 black"></div>
-                    <div class="d5 white"></div>
-                    <div class="eb5 black"></div>
-                    <div class="e5 white"></div>
-                    <div class="f5 white"></div>
-                    <div class="gb5 black"></div>
-                    <div class="g5 white"></div>
-                    <div class="ab5 black"></div>
-                    <div class="a5 white"></div>
-                    <div class="bb5 black"></div>
-                    <div class="b5 white"></div>
-<!-- ----------- -->
-                    <div class="c5r white-rest"></div>
-                    <div class="d5r white-rest"></div>
-                    <div class="e5r white-rest"></div>
-                    <div class="f5r white-rest"></div>
-                    <div class="g5r white-rest"></div>
-                    <div class="a5r white-rest"></div>               
-                    <div class="b5r white-rest"></div>
-                 </div>
-                 <div class="con4">
-                    <div class="c6 white"></div>
-                    <div class="db6 black"></div>
-                    <div class="d6 white"></div>
-                    <div class="eb6 black"></div>
-                    <div class="e6 white"></div>
-<!-- ----------- -->
-                    <div class="c6r white-rest"></div>
-                    <div class="d6r white-rest"></div>
-                    <div class="e6r white-rest"></div>
-                 </div>
-            </div>
+      <h1 class="instruction">
+        Hover to select record <i class="fa-solid fa-arrow-right"></i>
+      </h1>
+      <button class="button1">For Elise</button>
+      <button class="button2">Bella Ciao</button>
+      <button class="button3">Lux Aeterna</button>
+      <button class="button-book"></button>
+      <div class="section-center">
+        <div class="container">
+          <aside class="submenu">
+            <ul class="list">
+              <li class="item">
+                <a href="#" type="button" class="vinyl-btn1">
+                  <i class="fa-solid fa-record-vinyl icon"></i> For Elise</a
+                >
+              </li>
+              <li class="item">
+                <a href="#" type="button" class="vinyl-btn2"
+                  ><i class="fa-solid fa-record-vinyl icon"></i> Bella Ciao</a
+                >
+              </li>
+              <li class="item">
+                <a href="#" type="button" class="vinyl-btn3"
+                  ><i class="fa-solid fa-record-vinyl icon"></i> Lux Aeterna</a
+                >
+              </li>
+            </ul>
+          </aside>
+          <div class="con-1">
+            <div class="f1 white"></div>
+            <div class="gb1 black"></div>
+            <div class="g1 white"></div>
+            <div class="ab1 black"></div>
+            <div class="a1 white"></div>
+            <div class="bb1 black"></div>
+            <div class="b1 white"></div>
+            <!-- -------------- -->
+            <div class="f1r white-rest"></div>
+            <div class="g1r white-rest"></div>
+            <div class="a1r white-rest"></div>
+            <div class="b1r white-rest"></div>
+          </div>
+          <div class="con0">
+            <div class="c2 white"></div>
+            <div class="db2 black"></div>
+            <div class="d2 white"></div>
+            <div class="eb2 black"></div>
+            <div class="e2 white"></div>
+            <div class="f2 white"></div>
+            <div class="gb2 black"></div>
+            <div class="g2 white"></div>
+            <div class="ab2 black"></div>
+            <div class="a2 white"></div>
+            <div class="bb2 black"></div>
+            <div class="b2 white"></div>
+            <!-- -------------- -->
+            <div class="c2r white-rest"></div>
+            <div class="d2r white-rest"></div>
+            <div class="e2r white-rest"></div>
+            <div class="f2r white-rest"></div>
+            <div class="g2r white-rest"></div>
+            <div class="a2r white-rest"></div>
+            <div class="b2r white-rest"></div>
+          </div>
+          <div class="con1">
+            <div class="c3 white"></div>
+            <div class="db3 black"></div>
+            <div class="d3 white"></div>
+            <div class="eb3 black"></div>
+            <div class="e3 white"></div>
+            <div class="f3 white"></div>
+            <div class="gb3 black"></div>
+            <div class="g3 white"></div>
+            <div class="ab3 black"></div>
+            <div class="a3 white"></div>
+            <div class="bb3 black"></div>
+            <div class="b3 white"></div>
+            <!-- ----------- -->
+            <div class="c3r white-rest"></div>
+            <div class="d3r white-rest"></div>
+            <div class="e3r white-rest"></div>
+            <div class="f3r white-rest"></div>
+            <div class="g3r white-rest"></div>
+            <div class="a3r white-rest"></div>
+            <div class="b3r white-rest"></div>
+          </div>
+          <!-- ------------------------ -->
+          <div class="con2">
+            <div class="c4 white"></div>
+            <div class="db4 black"></div>
+            <div class="d4 white"></div>
+            <div class="eb4 black"></div>
+            <div class="e4 white"></div>
+            <div class="f4 white"></div>
+            <div class="gb4 black"></div>
+            <div class="g4 white"></div>
+            <div class="ab4 black"></div>
+            <div class="a4 white"></div>
+            <div class="bb4 black"></div>
+            <div class="b4 white"></div>
+            <!-- ----------- -->
+            <div class="c4r white-rest"></div>
+            <div class="d4r white-rest"></div>
+            <div class="e4r white-rest"></div>
+            <div class="f4r white-rest"></div>
+            <div class="g4r white-rest"></div>
+            <div class="a4r white-rest"></div>
+            <div class="b4r white-rest"></div>
+          </div>
+          <!-- ------------------------ -->
+          <div class="con3">
+            <div class="c5 white"></div>
+            <div class="db5 black"></div>
+            <div class="d5 white"></div>
+            <div class="eb5 black"></div>
+            <div class="e5 white"></div>
+            <div class="f5 white"></div>
+            <div class="gb5 black"></div>
+            <div class="g5 white"></div>
+            <div class="ab5 black"></div>
+            <div class="a5 white"></div>
+            <div class="bb5 black"></div>
+            <div class="b5 white"></div>
+            <!-- ----------- -->
+            <div class="c5r white-rest"></div>
+            <div class="d5r white-rest"></div>
+            <div class="e5r white-rest"></div>
+            <div class="f5r white-rest"></div>
+            <div class="g5r white-rest"></div>
+            <div class="a5r white-rest"></div>
+            <div class="b5r white-rest"></div>
+          </div>
+          <div class="con4">
+            <div class="c6 white"></div>
+            <div class="db6 black"></div>
+            <div class="d6 white"></div>
+            <div class="eb6 black"></div>
+            <div class="e6 white"></div>
+            <!-- ----------- -->
+            <div class="c6r white-rest"></div>
+            <div class="d6r white-rest"></div>
+            <div class="e6r white-rest"></div>
+          </div>
         </div>
-        
+      </div>
+      <canvas class="canvas"></canvas>
     </section>
+
     <script type="module" src="./app.js"></script>
-</body>
+  </body>
 </html>
