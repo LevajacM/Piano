@@ -80,7 +80,10 @@ const con1 = document.querySelector(".con1");
 const con2 = document.querySelector(".con2");
 const con3 = document.querySelector(".con3");
 const con4 = document.querySelector(".con4");
-
+const windowWidth = window.innerWidth;
+const isTouchScreen = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+const eventDown = isTouchScreen ? "touchstart" : "mousedown";
+const eventUp = isTouchScreen ? "touchend" : "mouseup";
 // --------------------------------------------------------------------------------
 // ------------------------- -1 KEYDOWN ------------------
 
@@ -94,7 +97,7 @@ const con4 = document.querySelector(".con4");
 // --------------------------------------------------------------------------------
 //---------------------------------- -1 MOUSEDOWN -----------------
 
-con01.addEventListener("mousedown", (e) => {
+con01.addEventListener(eventDown, (e) => {
   if (e.target.classList.contains("f1") || e.target.classList.contains("f1r")) {
     pf1();
     const element1 = con01.querySelector(".f1");
@@ -149,7 +152,7 @@ con01.addEventListener("mousedown", (e) => {
 // -------------------------------------------------------------------------------------
 //-------------------------------------- -1 MOUSEUP -------------------------------------
 
-con01.addEventListener("mouseup", (e) => {
+con01.addEventListener(eventUp, (e) => {
   if (e.target.classList.contains("f1") || e.target.classList.contains("f1r")) {
     const element1 = con01.querySelector(".f1");
     const element2 = con01.querySelector(".f1r");
@@ -210,7 +213,7 @@ con01.addEventListener("mouseup", (e) => {
 // --------------------------------------------------------------------------------
 //---------------------------------- 0 MOUSEDOWN -----------------
 
-con0.addEventListener("mousedown", (e) => {
+con0.addEventListener(eventDown, (e) => {
   if (e.target.classList.contains("c2") || e.target.classList.contains("c2r")) {
     pc2();
     const element1 = con0.querySelector(".c2");
@@ -300,7 +303,7 @@ con0.addEventListener("mousedown", (e) => {
 // -------------------------------------------------------------------------------------
 //-------------------------------------- 0 MOUSEUP -------------------------------------
 
-con0.addEventListener("mouseup", (e) => {
+con0.addEventListener(eventUp, (e) => {
   if (e.target.classList.contains("c2") || e.target.classList.contains("c2r")) {
     const element1 = con0.querySelector(".c2");
     const element2 = con0.querySelector(".c2r");
@@ -539,7 +542,7 @@ document.addEventListener("keyup", (e) => {
 // --------------------------------------------------------------------------------
 //---------------------------------- 1 MOUSEDOWN -----------------
 
-con1.addEventListener("mousedown", (e) => {
+con1.addEventListener(eventDown, (e) => {
   if (e.target.classList.contains("c3") || e.target.classList.contains("c3r")) {
     pc3();
     const element1 = con1.querySelector(".c3");
@@ -626,7 +629,7 @@ con1.addEventListener("mousedown", (e) => {
 // -------------------------------------------------------------------------------------
 //-------------------------------------- 1 MOUSEUP -------------------
 
-con1.addEventListener("mouseup", (e) => {
+con1.addEventListener(eventUp, (e) => {
   if (e.target.classList.contains("c3") || e.target.classList.contains("c3r")) {
     const element1 = con1.querySelector(".c3");
     const element2 = con1.querySelector(".c3r");
@@ -861,7 +864,7 @@ document.addEventListener("keyup", (e) => {
 // --------------------------------------------------------------------------------
 //-------------------------------------- 2 MOUSEDOWN --------------
 
-con2.addEventListener("mousedown", (e) => {
+con2.addEventListener(eventDown, (e) => {
   if (e.target.classList.contains("c4") || e.target.classList.contains("c4r")) {
     pc4();
     const element1 = con2.querySelector(".c4");
@@ -948,7 +951,7 @@ con2.addEventListener("mousedown", (e) => {
 // -------------------------------------------------------------------------------------
 //---------------------------------------------- 2 MOUSEUP --------------
 
-con2.addEventListener("mouseup", (e) => {
+con2.addEventListener(eventUp, (e) => {
   if (e.target.classList.contains("c4") || e.target.classList.contains("c4r")) {
     const element1 = con2.querySelector(".c4");
     const element2 = con2.querySelector(".c4r");
@@ -1183,7 +1186,7 @@ document.addEventListener("keyup", (e) => {
 // --------------------------------------------------------------------------------
 // --------------------------------------- 3 MOUSEDOWN -----------
 
-con3.addEventListener("mousedown", (e) => {
+con3.addEventListener(eventDown, (e) => {
   if (e.target.classList.contains("c5") || e.target.classList.contains("c5r")) {
     pc5();
     const element1 = con3.querySelector(".c5");
@@ -1270,7 +1273,7 @@ con3.addEventListener("mousedown", (e) => {
 // -------------------------------------------------------------------------------------
 // ------------------------------------- 3 MOUSEUP ------------------------
 
-con3.addEventListener("mouseup", (e) => {
+con3.addEventListener(eventUp, (e) => {
   if (e.target.classList.contains("c5") || e.target.classList.contains("c5r")) {
     const element1 = con3.querySelector(".c5");
     const element2 = con3.querySelector(".c5r");
@@ -1355,7 +1358,7 @@ con3.addEventListener("mouseup", (e) => {
 // --------------------------------------------------------------------------------
 // --------------------------------------- 4 MOUSEDOWN -----------
 
-con4.addEventListener("mousedown", (e) => {
+con4.addEventListener(eventDown, (e) => {
   if (e.target.classList.contains("c6") || e.target.classList.contains("c6r")) {
     pc6();
     const element1 = con4.querySelector(".c6");
@@ -1396,7 +1399,7 @@ con4.addEventListener("mousedown", (e) => {
 // -------------------------------------------------------------------------------------
 // ------------------------------------- 4 MOUSEUP ------------------------
 
-con4.addEventListener("mouseup", (e) => {
+con4.addEventListener(eventUp, (e) => {
   if (e.target.classList.contains("c6") || e.target.classList.contains("c6r")) {
     const element1 = con4.querySelector(".c6");
     const element2 = con4.querySelector(".c6r");
@@ -1428,7 +1431,7 @@ con4.addEventListener("mouseup", (e) => {
     element.classList.remove("pressb");
   }
 });
-// -------------------------------------------------------------------------------
+// -----------------------------------------------------
 
 const glitch = document.querySelector(".glitch-wrapper");
 const button1 = document.querySelector(".button1");
@@ -1437,7 +1440,26 @@ const button3 = document.querySelector(".button3");
 const bookBtn = document.querySelector(".button-book");
 const sec = document.querySelector(".section");
 
-// 1. Kreiramo scene, kameru i renderer
+// scena, kamera i renderer
+let modelSize;
+if (windowWidth < 640) {
+  modelSize = 0.09;
+}
+if (windowWidth < 940) {
+  modelSize = 0.1;
+}
+if (windowWidth < 1140) {
+  modelSize = 0.11;
+}
+if (windowWidth < 1340) {
+  modelSize = 0.12;
+}
+if (windowWidth < 1540) {
+  modelSize = 0.13;
+}
+if (windowWidth >= 1540) {
+  modelSize = 0.135;
+}
 const canvas = document.querySelector(".canvas");
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -1455,79 +1477,18 @@ renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
 // 2. Dodajemo svetlo
-/*
-const light = new THREE.AmbientLight(0xffffff, 0.5);
+const light = new THREE.AmbientLight(0xffffff, 5);
 scene.add(light);
 
-const gradient1 = new THREE.Color(0xd1c6b1);
-const gradient2 = new THREE.Color(0xfffaf0);
-scene.background = gradient2;
-
-// Dodajemo usmereno svetlo
+// svetlo koje dolazi tačno od gore
 const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
-directionalLight.position.set(5, 5, 5);
+directionalLight.position.set(0, 5, 0); //svetlo iznad modela
+directionalLight.target.position.set(0, 0, 0); // svetlo ka modelu
+directionalLight.castShadow = true; //senke sa usmerenog svetla
 scene.add(directionalLight);
 
-const pointLight = new THREE.PointLight(0xffff00, 2, 50);
-pointLight.position.set(0, 10, 20); // Pozicija svetla
-pointLight.castShadow = true; // Omogućavanje senki za ovo svetlo
-scene.add(pointLight);
-
-// 3. Učitavamo GLB model pomoću GLTFLoader-a
-const loader = new THREE.GLTFLoader();
-loader.load(
-  "./scene.gltf",
-  function (gltf) {
-    scene.add(gltf.scene);
-
-    // Postavljanje veličine modela
-    gltf.scene.scale.set(0.12, 0.12, 0.12);
-    gltf.scene.position.set(0.08, -0.5, 0);
-    gltf.scene.rotation.set(0, 0, 0);
-
-    gltf.scene.castShadow = true; // Model baca senku
-    gltf.scene.receiveShadow = true;
-  },
-  function (xhr) {
-    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-  },
-  function (error) {
-    console.error("Loading error:", error);
-  }
-);
-// 4. Animacija
-function animate() {
-  requestAnimationFrame(animate);
-
-  setTimeout(() => {
-    scene.traverse(function (object) {
-      if (object instanceof THREE.Mesh) {
-        object.rotation.z -= 0.005;
-      }
-    });
-  }, 5500);
-
-  renderer.render(scene, camera);
-}
-
-// 5. Pokrećemo animaciju
-// animate();
-// 6. Postavljanje pozicije kamere
-camera.position.z = 1;
-*/
-// 2. Dodajemo svetlo
-const light = new THREE.AmbientLight(0xffffff, 5); // Slabo ambijentalno svetlo
-scene.add(light);
-
-// Dodajemo usmereno svetlo koje dolazi tačno od gore
-const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
-directionalLight.position.set(0, 5, 0); // Postavljamo svetlo iznad modela
-directionalLight.target.position.set(0, 0, 0); // Usmeravamo svetlo ka modelu
-directionalLight.castShadow = true; // Omogućavamo senke sa usmerenog svetla
-scene.add(directionalLight);
-
-// Postavljamo senke za svetlo
-directionalLight.shadow.mapSize.width = 1024; // Kvalitet senke
+// senke za svetlo
+directionalLight.shadow.mapSize.width = 1024;
 directionalLight.shadow.mapSize.height = 1024;
 directionalLight.shadow.camera.near = 0.1;
 directionalLight.shadow.camera.far = 10;
@@ -1535,13 +1496,12 @@ directionalLight.shadow.camera.far = 10;
 const gradient2 = new THREE.Color(0xfffaf0);
 scene.background = gradient2;
 
-// Dodajemo tačkasto svetlo koje baca senke
 const pointLight = new THREE.PointLight(0xffff00, 2, 50);
-pointLight.position.set(0, 10, 20); // Pozicija svetla
-pointLight.castShadow = true; // Omogućavanje senki za ovo svetlo
+pointLight.position.set(0, 10, 20);
+pointLight.castShadow = true;
 scene.add(pointLight);
 
-// 3. Učitavamo GLB model pomoću GLTFLoader-a
+//GLTFLoader
 const loader = new THREE.GLTFLoader();
 loader.load(
   "./scene.gltf",
@@ -1549,12 +1509,12 @@ loader.load(
     scene.add(gltf.scene);
 
     // Postavljanje veličine modela
-    gltf.scene.scale.set(0.12, 0.12, 0.12);
+    gltf.scene.scale.set(modelSize, modelSize, modelSize);
     gltf.scene.position.set(0.08, -0.5, 0);
     gltf.scene.rotation.set(0, 0, 0);
 
-    gltf.scene.castShadow = true; // Model baca senku
-    gltf.scene.receiveShadow = true; // Model prima senku
+    gltf.scene.castShadow = true;
+    gltf.scene.receiveShadow = true;
   },
   function (xhr) {
     console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
@@ -1583,11 +1543,8 @@ function animate() {
   }
 }
 
-// 5. Pokrećemo animaciju
-
-// 6. Postavljanje pozicije kamere
 camera.position.z = 1;
-//--------------------------------------------------------------------------------
+//-----------------------------------------------------
 
 button1.addEventListener("click", () => {
   button1.disabled = true;
@@ -1744,86 +1701,6 @@ async function playTune(sequence) {
 
 // ------------------------------------------------
 
-// function tune(time, element, str) {
-//   return new Promise((res, rej) => {
-//     let keyR;
-//     let key = document.querySelector(`.${str}`);
-//     if (key) {
-//       if (key.classList.contains("white")) {
-//         keyR = document.querySelector(`.${str}r`);
-//       }
-//     }
-
-//     if (element) {
-//       setTimeout(() => {
-//         if (key) {
-//           if (key.classList.contains("white")) {
-//             key.classList.add("press");
-//             keyR.classList.add("press");
-//             if (str.includes("1")) {
-//               con01.classList.add("press");
-//             }
-//             if (str.includes("2")) {
-//               con0.classList.add("press");
-//             }
-//             if (str.includes("3")) {
-//               con1.classList.add("press");
-//             }
-//             if (str.includes("4")) {
-//               con2.classList.add("press");
-//             }
-//             if (str.includes("5")) {
-//               con3.classList.add("press");
-//             }
-//             if (str.includes("6")) {
-//               con4.classList.add("press");
-//             }
-//           }
-//           if (key.classList.contains("black")) {
-//             key.classList.add("pressb");
-//           }
-//           element.load();
-//           element.play();
-//           res();
-//         } else {
-//           element.load();
-//           element.play();
-//           res();
-//         }
-//       }, time);
-//       setTimeout(() => {
-//         if (key) {
-//           if (key.classList.contains("white")) {
-//             key.classList.remove("press");
-//             keyR.classList.remove("press");
-//             if (str.includes("1")) {
-//               con01.classList.remove("press");
-//             }
-//             if (str.includes("2")) {
-//               con0.classList.remove("press");
-//             }
-//             if (str.includes("3")) {
-//               con1.classList.remove("press");
-//             }
-//             if (str.includes("4")) {
-//               con2.classList.remove("press");
-//             }
-//             if (str.includes("5")) {
-//               con3.classList.remove("press");
-//             }
-//             if (str.includes("6")) {
-//               con4.classList.remove("press");
-//             }
-//           } else {
-//             key.classList.remove("pressb");
-//           }
-//         }
-//       }, time + 400);
-//     } else {
-//       rej(new Error(`There was an error`));
-//     }
-//   });
-// }
 function tune(time, element, str) {
   return new Promise((res, rej) => {
     let keyR;
@@ -1836,12 +1713,11 @@ function tune(time, element, str) {
 
     if (element) {
       setTimeout(() => {
-        // Aktiviraj pritisak na dugmadi
         if (key) {
           if (key.classList.contains("white")) {
             key.classList.add("press");
             keyR.classList.add("press");
-            // Specifične akcije za različite tipove tonova
+
             if (str.includes("1")) {
               con01.classList.add("press");
             }
@@ -1866,21 +1742,18 @@ function tune(time, element, str) {
           }
         }
 
-        // Sviraj ton
         element.load();
         element.play();
 
-        // Pozovi resolve() kada je ton odsviran
         res();
-      }, time); // Odeljenje za odlaganje pre nego što melodija počne
+      }, time);
 
-      // Odeljenje za uklanjanje pritisnutih klasa nakon određenog vremena
       setTimeout(() => {
         if (key) {
           if (key.classList.contains("white")) {
             key.classList.remove("press");
             keyR.classList.remove("press");
-            // Ukloni specifične klase kada melodija završi
+
             if (str.includes("1")) {
               con01.classList.remove("press");
             }
@@ -1904,9 +1777,8 @@ function tune(time, element, str) {
           }
         }
       }, time + 400);
-      // 400ms nakon što melodija završi
     } else {
-      rej(new Error(`There was an error`)); // Ako element nije pronađen
+      rej(new Error(`There was an error`));
     }
   });
 }
@@ -1916,10 +1788,14 @@ function tune(time, element, str) {
 const vinylBtn1 = document.querySelector(".vinyl-btn1");
 const vinylBtn2 = document.querySelector(".vinyl-btn2");
 const vinylBtn3 = document.querySelector(".vinyl-btn3");
+const sub = document.querySelector(".submenu");
 
 vinylBtn1.addEventListener("click", vinylBtn1Function);
 
 function vinylBtn1Function(e) {
+  if (windowWidth < 640) {
+    sub.classList.remove("show-sub");
+  }
   if (button2.classList.contains("show-btn")) {
     button2.classList.remove("show-btn");
   }
@@ -1983,6 +1859,9 @@ function vinylBtn1Function(e) {
 vinylBtn2.addEventListener("click", vinylBtn2Function);
 
 function vinylBtn2Function(e) {
+  if (windowWidth < 640) {
+    sub.classList.remove("show-sub");
+  }
   if (button1.classList.contains("show-btn")) {
     button1.classList.remove("show-btn");
   }
@@ -2046,6 +1925,9 @@ function vinylBtn2Function(e) {
 vinylBtn3.addEventListener("click", vinylBtn3Function);
 
 function vinylBtn3Function(e) {
+  if (windowWidth < 640) {
+    sub.classList.remove("show-sub");
+  }
   if (button1.classList.contains("show-btn")) {
     button1.classList.remove("show-btn");
   }
@@ -2109,16 +1991,16 @@ function vinylBtn3Function(e) {
 
 //---------------------------------------------------------------
 
-const sub = document.querySelector(".submenu");
-const section = document.querySelector(".section");
 const instruction = document.querySelector(".instruction");
 
 bookBtn.addEventListener("mouseover", () => {
-  sub.classList.add("show-sub");
-  instruction.classList.add("disappear");
+  if (!isTouchScreen) {
+    sub.classList.add("show-sub");
+    instruction.classList.add("disappear");
+  }
 });
 
-section.addEventListener("mouseover", (e) => {
+sec.addEventListener("mouseover", (e) => {
   if (
     e.target.classList.contains("white-rest") ||
     e.target.classList.contains("black") ||
@@ -2126,5 +2008,27 @@ section.addEventListener("mouseover", (e) => {
     e.target.classList.contains("section")
   ) {
     sub.classList.remove("show-sub");
+  }
+});
+
+sec.addEventListener("click", (e) => {
+  if (isTouchScreen) {
+    if (e.target.classList.contains("button-book")) {
+      instruction.classList.add("disappear");
+      if (sub.classList.contains("show-sub")) {
+        sub.classList.remove("show-sub");
+        return;
+      }
+      sub.classList.add("show-sub");
+      return;
+    }
+    if (
+      !e.target.classList.contains("list") ||
+      !e.target.classList.contains("submenu")
+    ) {
+      if (sub.classList.contains("show-sub")) {
+        sub.classList.remove("show-sub");
+      }
+    }
   }
 });
